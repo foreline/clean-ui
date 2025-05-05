@@ -1,0 +1,34 @@
+{
+    "name": "foreline/clean-ui",
+    "type": "library",
+    "description": "UI library for clean framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Simakin Dima",
+            "email": "dima@foreline.ru"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "foreline/clean": "^0.5.49",
+        "symfony/http-foundation": ">6.3"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Presentation\\": "src/Presentation"
+        }
+    },
+    "scripts": {
+        "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "ssh://git@gitlab.foreline.ru:2222/foreline/clean.git"
+        }
+    ]
+}

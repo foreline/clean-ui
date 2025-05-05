@@ -1,0 +1,80 @@
+image: php:8.2
+
+stages:
+  - build
+  - lint
+  - check
+  - test
+
+# Install composer dependencies
+job-composer:
+  stage: build
+  before_script:
+    - echo "Running Composer Job"
+  script:
+    - apt-get update -yq && apt-get install -y unzip git libzip-dev
+    - docker-php-ext-install zip
+    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    - composer install --prefer-dist --no-progress --no-suggest
+  artifacts:
+    untracked: true
+    paths:
+      - vendor/
+      - composer.lock
+  after_script:
+    - ls -la
+    - echo "After script build-${CI_COMMIT_REF_SLUG}"
+
+# Check php syntax
+job-syntax-check:
+  stage: lint
+  before_script:
+    - echo "Running PHP syntax check"
+  script:
+    - find . -name "*.php" -exec php -l {} \;
+  allow_failure: false
+  dependencies:
+    - job-composer
+
+# Run PHPStan code quality analysis
+job-phpstan:
+  stage: check
+  before_script:
+    - echo "Running PHPStan code quality analysis job"
+  script:
+    - pwd
+    - php ./vendor/bin/phpstan analyze -c phpstan.neon --no-progress --error-format gitlab > ./phpstan-report.json
+    - ls -lha
+  artifacts:
+    untracked: true
+    paths:
+      - ./phpstan-report.json
+    expire_in: 1 hour
+    when: always
+    reports:
+      codequality: "./phpstan-report.json"
+  allow_failure: true
+
+# Run PHPUnit tests
+job-test:
+  stage: test
+  before_script:
+    - echo "Running Test Job"
+    - pecl install xdebug
+    - docker-php-ext-enable xdebug
+    - echo xdebug.mode=coverage > /usr/local/etc/php/conf.d/xdebug.ini
+  script:
+    - php ./vendor/bin/phpunit tests --do-not-cache-result --log-junit phpunit-report.xml --coverage-cobertura phpunit-coverage.xml --coverage-text --colors=never
+  artifacts:
+    paths:
+      - phpunit-report.xml
+      - phpunit-coverage.xml
+    expire_in: 1 hour
+    when: always
+    reports:
+      junit: phpunit-report.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: phpunit-coverage.xml
+  coverage: '/^\s*Lines:\s*\d+.\d+\%/'
+  allow_failure: false
