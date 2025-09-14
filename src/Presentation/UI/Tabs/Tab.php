@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Servicedesk\UI\Tabs;
+namespace Presentation\UI\Tabs;
 
 /**
  * UI Tabs
