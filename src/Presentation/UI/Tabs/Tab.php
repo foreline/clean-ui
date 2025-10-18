@@ -38,6 +38,9 @@ class Tab
     /** @var bool Загружать содержимое вкладки */
     private bool $preload = false;
     
+    /** @var string Классы для иконки */
+    private string $iconClasses = '';
+    
     /**
      * @return string
      */
@@ -260,6 +263,24 @@ class Tab
     public function setPreload(bool $preload = true): Tab
     {
         $this->preload = $preload;
+        return $this;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getIconClasses(): string
+    {
+        return $this->iconClasses;
+    }
+    
+    /**
+     * @param string $iconClasses
+     * @return Tab
+     */
+    public function setIconClasses(string $iconClasses): Tab
+    {
+        $this->iconClasses = $iconClasses;
         return $this;
     }
 }
