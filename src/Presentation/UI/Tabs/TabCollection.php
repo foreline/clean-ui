@@ -15,8 +15,8 @@ class TabCollection implements CollectionInterface
 {
     use CollectionTrait;
 
-    /** @var ?Tab[] */
-    private ?array $items;
+    /** @var Tab[] */
+    private array $items;
     
     /**
      * @return ?Tab
@@ -67,7 +67,7 @@ class TabCollection implements CollectionInterface
      */
     public function setItems(Iterator|null $tabCollection): self
     {
-        $this->items = null;
+        $this->items = [];
         foreach ( $tabCollection as $tab ) {
             $this->addItem($tab);
         }
@@ -87,7 +87,7 @@ class TabCollection implements CollectionInterface
         return implode(
             ', ',
             array_map(
-                fn (Tab $item): string => ($withUrl ? '<a href="' . $item->getSlug() . '">' : '') . $item->getName() . ($withUrl ? '</a>' : '')
+                fn (Tab $item): string => $item->getName()
                 ,$this->items
             )
         );
