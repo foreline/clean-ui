@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-04-25
+
+### Added
+- GitHub Copilot customization with skill-creator package
+
+### Changed
+- Relaxed foreline/clean version constraint to allow newer versions
+
 ## [1.0.1] - 2026-02-11
 
 ## [0.6.05] - 2026-02-10
