@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=8.0",
-        "foreline/clean": ">1.0.01",
+        "foreline/clean": "^3.3.1",
         "symfony/http-foundation": ">6.3"
     },
     "require-dev": {

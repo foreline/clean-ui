@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 2026-10-17
+
+- chore(deps): require clean 3.3.1 without Webmozart
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
