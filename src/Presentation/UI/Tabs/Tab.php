@@ -16,6 +16,9 @@ class Tab
     
     /** @var string Название вкладки */
     private string $name = '';
+
+    /** @var string Нативная подсказка вкладки */
+    private string $title = '';
     
     /** @var int Счетчик вкладки */
     private int $counter = 0;
@@ -92,6 +95,19 @@ class Tab
     public function setName(string $name): Tab
     {
         $this->name = $name;
+        return $this;
+    }
+
+    /** Возвращает текст подсказки без HTML-экранирования. */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    /** Задаёт подсказку; пустая строка отключает атрибут title при выводе. */
+    public function setTitle(string $title): Tab
+    {
+        $this->title = $title;
         return $this;
     }
     

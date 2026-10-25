@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## [1.2.0] - 2026-10-25
+
+- feat(tabs): add optional native hover titles with fluent setTitle/getTitle
+
 ## 2026-10-17
 
 - chore(deps): require clean 3.3.1 without Webmozart
