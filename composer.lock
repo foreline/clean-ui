@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4cc04c623497d05526c57c025c356cf3",
+    "content-hash": "d928d69e6f1de9d553a9d9e01cd279dd",
     "packages": [
         {
             "name": "brick/math",
@@ -132,7 +132,7 @@
         },
         {
             "name": "foreline/clean",
-            "version": "dev-main",
+            "version": "v3.3.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:foreline/clean.git",
@@ -153,7 +153,6 @@
                 "phpstan/phpstan": "*",
                 "phpunit/phpunit": "^9.6"
             },
-            "default-branch": true,
             "bin": [
                 "bin/messenger-worker.php",
                 "bin/event-monitor.php"
@@ -1083,9 +1082,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": [],
-    "prefer-stable": true,
+    "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": ">=8.0"
