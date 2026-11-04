@@ -3,6 +3,8 @@
     "type": "library",
     "description": "UI library for clean framework",
     "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Simakin Dima",
@@ -11,7 +13,7 @@
     ],
     "require": {
         "php": ">=8.0",
-        "foreline/clean": ">1.0.01",
+        "foreline/clean": ">3.3.1",
         "symfony/http-foundation": ">6.3"
     },
     "require-dev": {
@@ -28,7 +30,7 @@
     "repositories": [
         {
             "type": "git",
-            "url": "ssh://git@github.com:foreline/clean.git"
+            "url": "git@github.com:foreline/clean.git"
         }
     ]
 }
