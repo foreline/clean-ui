@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-08
+
+- chore(deps): require foreline/clean v3.4.0
+
 ## [1.2.0] - 2026-10-25
 
 - feat(tabs): add optional native hover titles with fluent setTitle/getTitle
